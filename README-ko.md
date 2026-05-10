@@ -6,7 +6,7 @@
 아파트·오피스텔·빌라·단독주택·상업용 건물의 실거래가 조회와 재무 계산을 포함한 14개 이상의 도구를 제공합니다.
 
 > [!WARNING]
-> **지원 종료 안내 — 2025년 6월 1일부**
+> **지원 종료 안내 — 2026년 6월 1일부**
 >
 > **ChatGPT 지원**이 제거됩니다. 필요한 OAuth 흐름(Auth0 + PKCE + DCR)이 복잡하여 개인 프로젝트로 유지하기 어려우며, 향후 재구현 여부는 미정입니다.
 >
@@ -22,9 +22,9 @@
 - [x] 단독·다가구 매매 / 전월세 (`get_single_house_trades`, `get_single_house_rent`)
 - [x] 상업용 건물 매매 (`get_commercial_trade`)
 - [x] 아파트 청약 공고 / 결과 (`get_apt_subscription_info`, `get_apt_subscription_results`)
-- [ ] ~~온비드 공매 입찰결과 (`get_public_auction_items`, `get_public_auction_item_detail`)~~ / 🗑️ 2025년 6월 1일 제거
-- [ ] ~~온비드 물건 조회 (`get_onbid_thing_info_list`)~~ / 🗑️ 2025년 6월 1일 제거
-- [ ] ~~온비드 코드·주소 조회 (`get_onbid_*_code_info`, `get_onbid_addr*_info`)~~ / 🗑️ 2025년 6월 1일 제거
+- [ ] ~~온비드 공매 입찰결과 (`get_public_auction_items`, `get_public_auction_item_detail`)~~ / 🗑️ 2026년 6월 1일 제거
+- [ ] ~~온비드 물건 조회 (`get_onbid_thing_info_list`)~~ / 🗑️ 2026년 6월 1일 제거
+- [ ] ~~온비드 코드·주소 조회 (`get_onbid_*_code_info`, `get_onbid_addr*_info`)~~ / 🗑️ 2026년 6월 1일 제거
 - [x] 지역코드 조회 (`get_region_code`)
 
 ## Prerequisites

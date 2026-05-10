@@ -8,7 +8,7 @@ This page describes how to connect to the real estate MCP server over a public H
 - [x] Claude CLI — connects via `--transport http` with a remote URL
 - [x] Codex CLI — connects via `--url` with a remote URL
 - [x] Claude (Web / Claude.ai) — **primary use case**
-- [x] ChatGPT (Web) — **deprecated**, removed June 1, 2025
+- [x] ChatGPT (Web) — **deprecated**, removed June 1, 2026
 
 ## Prerequisites
 
@@ -70,6 +70,6 @@ codex mcp remove real-estate
 
 ## ChatGPT (Web) — deprecated
 
-> **Deprecated:** ChatGPT support will be removed on June 1, 2025.
+> **Deprecated:** ChatGPT support will be removed on June 1, 2026.
 > The required OAuth flow (Auth0 + PKCE + DCR) is too complex to maintain reliably — it will be re-evaluated for a future release.
 > For the Caddy + Auth0 setup, see the deprecated Option B in [setup-reverse-proxy.md](setup-reverse-proxy.md).

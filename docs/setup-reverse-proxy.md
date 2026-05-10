@@ -94,9 +94,9 @@ No port forwarding or TLS certificate management required.
 
 ---
 
-## Option B: Caddy + OAuth (deprecated, removed June 1, 2025)
+## Option B: Caddy + OAuth (deprecated, removed June 1, 2026)
 
-> **Deprecated:** This option will be removed on June 1, 2025.
+> **Deprecated:** This option will be removed on June 1, 2026.
 > Migrate to Option A (Cloudflare Tunnel), which requires no port forwarding and no TLS certificate management.
 
 This option runs the MCP server behind a [Caddy](https://caddyserver.com/) reverse proxy with OAuth authentication.
@@ -105,7 +105,7 @@ This option runs the MCP server behind a [Caddy](https://caddyserver.com/) rever
 
 - [x] Claude CLI (HTTP)
 - [x] Claude (Web / Claude.ai) — via client credentials OAuth
-- [x] ChatGPT (Web) — via Auth0 PKCE (deprecated, removed June 1, 2025)
+- [x] ChatGPT (Web) — via Auth0 PKCE (deprecated, removed June 1, 2026)
 
 ### Additional prerequisites (Option B)
 

@@ -6,7 +6,7 @@ Connect Claude to Korea's MOLIT real estate API and simulate **buy now / buy lat
 Provides 14+ tools for live transaction data and financial calculations — apartment, officetel, villa, single-house, and commercial.
 
 > [!WARNING]
-> **Deprecation Notice — effective June 1, 2025**
+> **Deprecation Notice — effective June 1, 2026**
 >
 > **ChatGPT support** will be removed. The required OAuth flow (Auth0 + PKCE + DCR) is too complex to maintain as a personal project and will be re-evaluated for a future release.
 >
@@ -22,9 +22,9 @@ Provides 14+ tools for live transaction data and financial calculations — apar
 - [x] Single-house / multi-household trade / rent (`get_single_house_trades`, `get_single_house_rent`)
 - [x] Commercial building trades (`get_commercial_trade`)
 - [x] Apartment subscription notices / results (`get_apt_subscription_info`, `get_apt_subscription_results`)
-- [ ] ~~Onbid public auction bid results (`get_public_auction_items`, `get_public_auction_item_detail`)~~ / 🗑️ Removed June 1, 2025
-- [ ] ~~Onbid item lookup (`get_onbid_thing_info_list`)~~ / 🗑️ Removed June 1, 2025
-- [ ] ~~Onbid code / address lookup (`get_onbid_*_code_info`, `get_onbid_addr*_info`)~~ / 🗑️ Removed June 1, 2025
+- [ ] ~~Onbid public auction bid results (`get_public_auction_items`, `get_public_auction_item_detail`)~~ / 🗑️ Removed June 1, 2026
+- [ ] ~~Onbid item lookup (`get_onbid_thing_info_list`)~~ / 🗑️ Removed June 1, 2026
+- [ ] ~~Onbid code / address lookup (`get_onbid_*_code_info`, `get_onbid_addr*_info`)~~ / 🗑️ Removed June 1, 2026
 - [x] Region code lookup (`get_region_code`)
 
 ## Prerequisites
