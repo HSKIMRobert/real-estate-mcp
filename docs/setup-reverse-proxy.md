@@ -105,7 +105,7 @@ This option runs the MCP server behind a [Caddy](https://caddyserver.com/) rever
 
 - [x] Claude CLI (HTTP)
 - [x] Claude (Web / Claude.ai) — via client credentials OAuth
-- [x] ChatGPT (Web) — via Auth0 PKCE (deprecated, removed end of April 2025)
+- [x] ChatGPT (Web) — via Auth0 PKCE (deprecated, removed June 1, 2025)
 
 ### Additional prerequisites (Option B)
 

@@ -8,6 +8,8 @@ Provides 14+ tools for live transaction data and financial calculations — apar
 > [!WARNING]
 > **Deprecation Notice — effective June 1, 2025**
 >
+> **ChatGPT support** will be removed. The required OAuth flow (Auth0 + PKCE + DCR) is too complex to maintain as a personal project and will be re-evaluated for a future release.
+>
 > **Caddy reverse proxy** support will be removed. Cloudflare Tunnel is the recommended replacement and is already available in `docker/docker-compose.yml` via `--profile cloudflare`. See [docs/setup-reverse-proxy.md](docs/setup-reverse-proxy.md) for migration instructions.
 >
 > **Onbid (공매) support** will be removed. Onbid's API has required repeated patches that are no longer sustainable to maintain as a personal project. All `get_public_auction_*` and `get_onbid_*` tools will be deleted.
@@ -105,10 +107,6 @@ For other clients, transport options, or per-service API key configuration, see 
 | [docs/setup-with-stdio.md](docs/setup-with-stdio.md) | stdio / local HTTP | Claude Desktop, Claude CLI, Codex CLI |
 | [docs/setup-with-http.md](docs/setup-with-http.md) | HTTP (remote) | Claude (web), Claude CLI, Codex CLI |
 | [docs/setup-reverse-proxy.md](docs/setup-reverse-proxy.md) | — | Server-side proxy setup (Cloudflare Tunnel / Caddy) |
-
-> **Deprecation notice (April 2025):** ChatGPT support and the Caddy reverse proxy option will be removed at the end of April 2025.
-> ChatGPT's required OAuth flow (Auth0 + PKCE + DCR) is too complex to maintain — it will be re-evaluated for a future release.
-> Caddy is replaced by [Cloudflare Tunnel](docs/setup-reverse-proxy.md), which requires no port forwarding and no TLS certificate management.
 
 ## Contributors
 
