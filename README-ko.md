@@ -2,8 +2,15 @@
 
 [English](README.md) | [한국어](README-ko.md)
 
-국토교통부 공공데이터 API를 기반으로 Claude에게 한국 부동산 실거래가를 질문할 수 있는 MCP 서버입니다.
-국토교통부 실거래가 API를 MCP 서버로 제공하며, 아파트·오피스텔·빌라·단독주택·상업용 건물의 매매·전월세, 청약 공고·결과, 온비드 공매 조회를 포함한 14개 이상의 도구를 제공합니다.
+국토교통부 실거래가 API를 Claude에 연결해, 소득·자산·은퇴 목표 기반으로 **지금 매수 / N년 뒤 매수 / 매수 안 함(투자 집중)** 시나리오를 수치로 비교할 수 있는 MCP 서버입니다.
+아파트·오피스텔·빌라·단독주택·상업용 건물의 실거래가 조회와 재무 계산을 포함한 14개 이상의 도구를 제공합니다.
+
+> [!WARNING]
+> **지원 종료 안내 — 2025년 6월 1일부**
+>
+> **Caddy 리버스 프록시** 지원이 제거됩니다. Cloudflare Tunnel을 대안으로 권장하며, `docker/docker-compose.yml`에 `--profile cloudflare`로 이미 준비되어 있습니다. 마이그레이션 방법은 [docs/setup-reverse-proxy.md](docs/setup-reverse-proxy.md)를 참고하세요.
+>
+> **온비드(공매) 지원**이 제거됩니다. 온비드 API 오류 패치 작업이 반복적으로 발생해 개인 프로젝트로 유지하기 어려웠습니다. `get_public_auction_*` 및 `get_onbid_*` 관련 도구가 전부 삭제됩니다.
 
 ## Supported Tools
 
@@ -13,9 +20,9 @@
 - [x] 단독·다가구 매매 / 전월세 (`get_single_house_trades`, `get_single_house_rent`)
 - [x] 상업용 건물 매매 (`get_commercial_trade`)
 - [x] 아파트 청약 공고 / 결과 (`get_apt_subscription_info`, `get_apt_subscription_results`)
-- [ ] 온비드 공매 입찰결과 (`get_public_auction_items`, `get_public_auction_item_detail`) / ⚠️ 준비중
-- [ ] 온비드 물건 조회 (`get_onbid_thing_info_list`) / ⚠️ 준비중
-- [x] 온비드 코드·주소 조회 (`get_onbid_*_code_info`, `get_onbid_addr*_info`)
+- [ ] ~~온비드 공매 입찰결과 (`get_public_auction_items`, `get_public_auction_item_detail`)~~ / 🗑️ 2025년 6월 1일 제거
+- [ ] ~~온비드 물건 조회 (`get_onbid_thing_info_list`)~~ / 🗑️ 2025년 6월 1일 제거
+- [ ] ~~온비드 코드·주소 조회 (`get_onbid_*_code_info`, `get_onbid_addr*_info`)~~ / 🗑️ 2025년 6월 1일 제거
 - [x] 지역코드 조회 (`get_region_code`)
 
 ## Prerequisites
@@ -89,17 +96,18 @@
 
 ## Connect with Other Clients
 
-HTTP 모드, 다른 클라이언트, 서비스별 API 키 설정은 아래 문서를 참고하세요.
+다른 클라이언트, 전송 방식, 서비스별 API 키 설정은 아래 문서를 참고하세요.
 
-| 클라이언트 | 전송 방식 | 가이드 |
-|-----------|----------|--------|
-| Claude Desktop | stdio / HTTP | [docs/setup-claude-desktop.md](docs/setup-claude-desktop.md) |
-| Claude (웹) | HTTP only | [docs/setup-claude-web.md](docs/setup-claude-web.md) |
-| Claude CLI | stdio / HTTP | [docs/setup-claude-cli.md](docs/setup-claude-cli.md) |
-| Codex CLI | stdio / HTTP | [docs/setup-codex-cli.md](docs/setup-codex-cli.md) |
-| ChatGPT (웹) | HTTP only | [docs/setup-chatgpt-web.md](docs/setup-chatgpt-web.md) |
-| Docker (HTTP + Caddy) | HTTP | [docs/setup-docker.md](docs/setup-docker.md) |
-| OAuth (공개 접근) | — | [docs/setup-oauth.md](docs/setup-oauth.md) |
+| 가이드 | 전송 방식 | 클라이언트 |
+|--------|----------|-----------|
+| [docs/setup-prerequisites.md](docs/setup-prerequisites.md) | — | 전체 공통 |
+| [docs/setup-with-stdio.md](docs/setup-with-stdio.md) | stdio / 로컬 HTTP | Claude Desktop, Claude CLI, Codex CLI |
+| [docs/setup-with-http.md](docs/setup-with-http.md) | HTTP (원격) | Claude (웹), Claude CLI, Codex CLI |
+| [docs/setup-reverse-proxy.md](docs/setup-reverse-proxy.md) | — | 서버 사이드 프록시 설정 (Cloudflare Tunnel / Caddy) |
+
+> **Deprecation 공지 (2025년 4월):** ChatGPT 지원과 Caddy 리버스 프록시 옵션이 2025년 4월 말에 제거됩니다.
+> ChatGPT에서 요구하는 OAuth 흐름(Auth0 + PKCE + DCR)이 복잡하여 제거합니다 — 향후 재구현 예정입니다.
+> Caddy는 [Cloudflare Tunnel](docs/setup-reverse-proxy.md)로 대체됩니다. 포트 포워딩과 TLS 인증서 관리가 불필요한 방식입니다.
 
 ## Contributors
 

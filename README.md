@@ -2,8 +2,15 @@
 
 [English](README.md) | [한국어](README-ko.md)
 
-Ask Claude about Korean apartment prices — powered by MOLIT's open API.
-Provides 14+ tools for querying apartment, officetel, villa, single-house, and commercial trade/rent data, apartment subscriptions, and public auctions.
+Connect Claude to Korea's MOLIT real estate API and simulate **buy now / buy later / invest only** scenarios based on your income, savings, and retirement goals.
+Provides 14+ tools for live transaction data and financial calculations — apartment, officetel, villa, single-house, and commercial.
+
+> [!WARNING]
+> **Deprecation Notice — effective June 1, 2025**
+>
+> **Caddy reverse proxy** support will be removed. Cloudflare Tunnel is the recommended replacement and is already available in `docker/docker-compose.yml` via `--profile cloudflare`. See [docs/setup-reverse-proxy.md](docs/setup-reverse-proxy.md) for migration instructions.
+>
+> **Onbid (공매) support** will be removed. Onbid's API has required repeated patches that are no longer sustainable to maintain as a personal project. All `get_public_auction_*` and `get_onbid_*` tools will be deleted.
 
 ## Supported Tools
 
@@ -13,9 +20,9 @@ Provides 14+ tools for querying apartment, officetel, villa, single-house, and c
 - [x] Single-house / multi-household trade / rent (`get_single_house_trades`, `get_single_house_rent`)
 - [x] Commercial building trades (`get_commercial_trade`)
 - [x] Apartment subscription notices / results (`get_apt_subscription_info`, `get_apt_subscription_results`)
-- [ ] Onbid public auction bid results (`get_public_auction_items`, `get_public_auction_item_detail`) / ⚠️ WIP
-- [ ] Onbid item lookup (`get_onbid_thing_info_list`) / ⚠️ WIP
-- [x] Onbid code / address lookup (`get_onbid_*_code_info`, `get_onbid_addr*_info`)
+- [ ] ~~Onbid public auction bid results (`get_public_auction_items`, `get_public_auction_item_detail`)~~ / 🗑️ Removed June 1, 2025
+- [ ] ~~Onbid item lookup (`get_onbid_thing_info_list`)~~ / 🗑️ Removed June 1, 2025
+- [ ] ~~Onbid code / address lookup (`get_onbid_*_code_info`, `get_onbid_addr*_info`)~~ / 🗑️ Removed June 1, 2025
 - [x] Region code lookup (`get_region_code`)
 
 ## Prerequisites
@@ -90,17 +97,18 @@ The fastest way to get started — the server runs as a child process of Claude 
 
 ## Connect with Other Clients
 
-For HTTP mode, other clients, or per-service API key configuration, see the docs below.
+For other clients, transport options, or per-service API key configuration, see the docs below.
 
-| Client | Transport | Guide |
-|--------|-----------|-------|
-| Claude Desktop | stdio / HTTP | [docs/setup-claude-desktop.md](docs/setup-claude-desktop.md) |
-| Claude (web) | HTTP only | [docs/setup-claude-web.md](docs/setup-claude-web.md) |
-| Claude CLI | stdio / HTTP | [docs/setup-claude-cli.md](docs/setup-claude-cli.md) |
-| Codex CLI | stdio / HTTP | [docs/setup-codex-cli.md](docs/setup-codex-cli.md) |
-| ChatGPT (web) | HTTP only | [docs/setup-chatgpt-web.md](docs/setup-chatgpt-web.md) |
-| Docker (HTTP + Caddy) | HTTP | [docs/setup-docker.md](docs/setup-docker.md) |
-| OAuth (public access) | — | [docs/setup-oauth.md](docs/setup-oauth.md) |
+| Guide | Transport | Clients |
+|-------|-----------|---------|
+| [docs/setup-prerequisites.md](docs/setup-prerequisites.md) | — | All clients |
+| [docs/setup-with-stdio.md](docs/setup-with-stdio.md) | stdio / local HTTP | Claude Desktop, Claude CLI, Codex CLI |
+| [docs/setup-with-http.md](docs/setup-with-http.md) | HTTP (remote) | Claude (web), Claude CLI, Codex CLI |
+| [docs/setup-reverse-proxy.md](docs/setup-reverse-proxy.md) | — | Server-side proxy setup (Cloudflare Tunnel / Caddy) |
+
+> **Deprecation notice (April 2025):** ChatGPT support and the Caddy reverse proxy option will be removed at the end of April 2025.
+> ChatGPT's required OAuth flow (Auth0 + PKCE + DCR) is too complex to maintain — it will be re-evaluated for a future release.
+> Caddy is replaced by [Cloudflare Tunnel](docs/setup-reverse-proxy.md), which requires no port forwarding and no TLS certificate management.
 
 ## Contributors
 
